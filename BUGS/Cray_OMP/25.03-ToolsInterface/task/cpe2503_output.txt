@@ -1,0 +1,78 @@
+[-1][ompt_start_tool] Chosen printf mode: 3
+[-1][ompt_start_tool] omp_version = 202111 | runtime_version = Cray OpenMP Runtime
+[-1][tool_initialize] lookup = 0x7f6045f7e680 | initial_device_num = -1 | tool_data = 0x7f603c44b678
+[-1][tool_initialize]       thread_begin = always
+[-1][tool_initialize]         thread_end = always
+[-1][tool_initialize]     parallel_begin = always
+[-1][tool_initialize]       parallel_end = always
+[-1][tool_initialize]        task_create = always
+[-1][tool_initialize]      task_schedule = always
+[-1][tool_initialize]      implicit_task = always
+[-1][tool_initialize]   sync_region_wait = always
+[-1][tool_initialize]     mutex_released = sometimes
+[-1][tool_initialize]        dependences = sometimes
+[-1][tool_initialize]    task_dependence = sometimes
+[-1][tool_initialize]               work = sometimes_paired
+[-1][tool_initialize]             masked = never
+[-1][tool_initialize]        sync_region = always
+[-1][tool_initialize]          lock_init = always
+[-1][tool_initialize]       lock_destroy = always
+[-1][tool_initialize]      mutex_acquire = sometimes
+[-1][tool_initialize]     mutex_acquired = sometimes
+[-1][tool_initialize]          nest_lock = always
+[-1][tool_initialize]              flush = never
+[-1][tool_initialize]             cancel = never
+[-1][tool_initialize]          reduction = always
+[-1][tool_initialize]           dispatch = never
+[-1][tool_initialize]       control_tool = always
+[-1][tool_initialize]  device_initialize = always
+[-1][tool_initialize]    device_finalize = always
+[-1][tool_initialize]        device_load = always
+[-1][tool_initialize]      device_unload = always
+[-1][tool_initialize]         target_emi = always
+[-1][tool_initialize]     target_map_emi = never
+[-1][tool_initialize]         target_map = never
+[-1][tool_initialize] target_data_op_emi = always
+[-1][tool_initialize]  target_submit_emi = always
+[0][callback_thread_begin] thread_type = initial | thread_data = 0x7f603c44eca0
+[0][callback_implicit_task] endpoint = begin | parallel_data->value = 0 (0x7f6045fac900) | task_data->value = 555000001 (0x338c90) | actual_parallelism = 1 | index = 1 | flags = initial
+[1][callback_thread_begin] thread_type = worker | thread_data = 0x7f6039bff460
+[0][callback_parallel_begin] encountering_task_data->value = 555000001 (0x338c90) | encountering_task_frame = 0x338ca0 | parallel_data->value = 666000001 (0x339280) | requested_parallelism = 2 | flags = runtime_team | codeptr_ra = 0x204256
+[0][callback_implicit_task] endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | actual_parallelism = 2 | index = 0 | flags = implicit_undeferred
+[1][callback_implicit_task] endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | actual_parallelism = 2 | index = 1 | flags = implicit_undeferred
+[1][callback_work] work_type = single_executor | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | count = 1 | codeptr_ra = 0x204288
+[0][callback_work] work_type = single_other | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | count = 1 | codeptr_ra = 0x204288
+[0][callback_work] work_type = single_other | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | count = 1 | codeptr_ra = 0x204288
+[0][callback_sync_region] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = 0x204309
+[0][callback_sync_region_wait] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = 0x204309
+[1][callback_task_create] encountering_task_data->value = 555000002 (0x7f602c000b80) | encountering_task_frame = 0x7f602c000b90 | new_task_data->value = 555000004 (0x7f602c0811a0) | flags = explicit | has_dependences = 0 | codeptr_ra = 0x2042da
+[1][callback_task_create] encountering_task_data->value = 555000002 (0x7f602c000b80) | encountering_task_frame = 0x7f602c000b90 | new_task_data->value = 555000005 (0x7f602c081200) | flags = explicit | has_dependences = 0 | codeptr_ra = 0x2042da
+[1][callback_task_create] encountering_task_data->value = 555000002 (0x7f602c000b80) | encountering_task_frame = 0x7f602c000b90 | new_task_data->value = 555000006 (0x7f602c081260) | flags = explicit | has_dependences = 0 | codeptr_ra = 0x2042da
+[1][callback_work] work_type = single_executor | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | count = 1 | codeptr_ra = 0x2042f7
+[1][callback_sync_region] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = 0x204309
+[1][callback_sync_region_wait] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = 0x204309
+[0][callback_task_schedule] prior_task_data->value = 555000003 (0x3396f0) | prior_task_status = switch | next_task_data->value = 555000004 (0x7f602c0811a0)
+[0][callback_task_schedule] prior_task_data->value = 555000004 (0x7f602c0811a0) | prior_task_status = complete | next_task_data->value = 555000003 (0x3396f0)
+[1][callback_task_schedule] prior_task_data->value = 555000002 (0x7f602c000b80) | prior_task_status = switch | next_task_data->value = 555000006 (0x7f602c081260)
+[0][callback_task_schedule] prior_task_data->value = 555000003 (0x3396f0) | prior_task_status = switch | next_task_data->value = 555000005 (0x7f602c081200)
+[0][callback_task_schedule] prior_task_data->value = 555000005 (0x7f602c081200) | prior_task_status = complete | next_task_data->value = 555000003 (0x3396f0)
+[1][callback_task_schedule] prior_task_data->value = 555000006 (0x7f602c081260) | prior_task_status = complete | next_task_data->value = 555000002 (0x7f602c000b80)
+[1][callback_sync_region_wait] kind = barrier_implicit_workshare | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = 0x204309
+[1][callback_sync_region] kind = barrier_implicit_workshare | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = 0x204309
+[0][callback_sync_region_wait] kind = barrier_implicit_workshare | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = 0x204309
+[0][callback_sync_region] kind = barrier_implicit_workshare | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = 0x204309
+[0][callback_sync_region] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = (nil)
+[0][callback_sync_region_wait] kind = barrier_implicit_workshare | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000002 (0x7f602c000b80) | codeptr_ra = (nil)
+[1][callback_implicit_task] endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x7f602c000b80) | actual_parallelism = 0 | index = 1 | flags = implicit_undeferred
+[0][callback_sync_region_wait] kind = barrier_implicit_parallel | endpoint = end | parallel_data->value = 666000001 (0x339280) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = (nil)
+[0][callback_sync_region] kind = barrier_implicit_parallel | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x3396f0) | codeptr_ra = (nil)
+[0][callback_implicit_task] endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x3396f0) | actual_parallelism = 0 | index = 0 | flags = implicit_undeferred
+[0][callback_parallel_end] parallel_data->value = 666000001 (0x339280) | encountering_task_data->value = 555000001 (0x338c90) | flags = runtime_team | codeptr_ra = 0x204256
+[1][callback_thread_end] thread_data = 0x7f6039bff460
+[0][callback_implicit_task] endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000001 (0x338c90) | actual_parallelism = 0 | index = 1 | flags = initial
+[0][callback_thread_end] thread_data = 0x7f603c44eca0
+[0][tool_finalize] tool_data = 0x7f603c44b678
