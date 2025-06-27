@@ -76,3 +76,19 @@ cc -fopenmp test.c -o test.x
 rm core
 ```
 
+## Comparing Compiler Outputs
+
+To analyze the difference in OMPT event reporting, you can generate logs for both compiler toolchains:
+```bash
+# Generate Cray Log
+module load PrgEnv-cray
+./compile.sh
+./run_tests.sh > CRAY.log
+# Generate AMD (AOMP) Log
+module load PrgEnv-amd
+./compile.sh
+./run_tests.sh > AMD.log
+```
+
+You can then inspect `CRAY.log` and `AMD.log` to see the difference in the `kind` of barriers reported.
+Logs from Lumi PrgEnv-amd/8.5.0 and PrgEnv-cray/8.5.0 are in `log_from_lumi` directory.

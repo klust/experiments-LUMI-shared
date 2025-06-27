@@ -1,0 +1,91 @@
+=================================================
+=== Barrier Analysis (filtering for 'kind = barrier*') ===
+=================================================
+
+--- Analysis for: copyprivate ---
+[0][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[0][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[1][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[1][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[3][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[3][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[2][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[3][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[1][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[1][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[0][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[0][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[0][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[3][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[2][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[1][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[1][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[3][callback_sync_region] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[3][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[0][callback_sync_region_wait] kind = barrier | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[3][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[3][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = 0x201c8b
+[2][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = 0x201c8b
+[2][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[2][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000003 (0x23e440) | codeptr_ra = (nil)
+[3][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = (nil)
+[3][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000004 (0x23e580) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = 0x201c8b
+[1][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000005 (0x23e300) | codeptr_ra = (nil)
+[0][callback_sync_region_wait] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[0][callback_sync_region] kind = barrier | endpoint = end | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201c8b
+[0][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201bb4
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x22faa0) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201bb4
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201bb4
+[0][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x23e1c0) | codeptr_ra = 0x201bb4
+[2][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x275b10) | codeptr_ra = (nil)
+[2][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x275b10) | codeptr_ra = (nil)
+[3][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000004 (0x278a50) | codeptr_ra = (nil)
+[3][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000004 (0x278a50) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000005 (0x272bd0) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000005 (0x272bd0) | codeptr_ra = (nil)
+
+--- Analysis for: task ---
+[0][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201b44
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201b44
+[1][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = 0x201b44
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = 0x201b44
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201b44
+[0][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201b44
+[0][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a86
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a86
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = 0x201b44
+[1][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = 0x201b44
+[1][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000006 (0x240cc0) | codeptr_ra = (nil)
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a86
+[0][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a86
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000006 (0x272590) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000006 (0x272590) | codeptr_ra = (nil)
+
+--- Analysis for: taskloop ---
+[3][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000004 (0x240f40) | codeptr_ra = (nil)
+[3][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000004 (0x240f40) | codeptr_ra = (nil)
+[2][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000003 (0x240e00) | codeptr_ra = (nil)
+[2][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000003 (0x240e00) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000005 (0x240cc0) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000005 (0x240cc0) | codeptr_ra = (nil)
+[0][callback_sync_region] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a96
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = begin | parallel_data->value = 666000001 (0x2324e0) | task_data->value = 555000002 (0x240b80) | codeptr_ra = 0x201a96
+[0][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x240b80) | codeptr_ra = (nil)
+[0][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000002 (0x240b80) | codeptr_ra = (nil)
+[3][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000004 (0x278410) | codeptr_ra = (nil)
+[3][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000004 (0x278410) | codeptr_ra = (nil)
+[1][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000005 (0x272590) | codeptr_ra = (nil)
+[1][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000005 (0x272590) | codeptr_ra = (nil)
+[2][callback_sync_region_wait] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x2754d0) | codeptr_ra = (nil)
+[2][callback_sync_region] kind = barrier_implicit | endpoint = end | parallel_data->value = 666666666 ((nil)) | task_data->value = 555000003 (0x2754d0) | codeptr_ra = (nil)
+
+All tests finished.
