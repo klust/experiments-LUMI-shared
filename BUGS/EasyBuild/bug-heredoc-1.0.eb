@@ -1,0 +1,83 @@
+#DOC Not exactly a bug, rather a feature. 
+#DOC The issue is here that EasyBuild tries to join preinstallopts in front and installopts
+#DOC at the back of each line in install_cmds even though that doesn't really make much sense.
+#DOC as one would expect that install_cmds specify full commands.
+#DOC (though one use case for at least preinstallopts could be to do a directory switch for
+#DOC each command)
+#DOC
+#DOC Result:
+#DOC
+#DOC -   testfile1.sh is not OK. It will end with EOF. Cat will generate a warning but that
+#DOC     is ignored by EasyBuild.
+#DOC -   Adding a newline after the EOF in installcmds solves the here document issue.
+#DOC -   And there is no such issue when used in postinstallcmds.
+easyblock = "Binary"
+
+name =     'bug-heredoc'
+version =  '1.0'
+
+homepage = 'None'
+
+whatis = [
+    'Description: Start EESSI in a containerised environment'
+]
+
+description = f"""
+This module shows an issue that occurs when trying to create a bash here document
+in EasyBuild 5. It works differently from EasyBuild 4.
+"""
+
+toolchain = SYSTEM
+
+#
+# No sources needed here but I cannot find a way to make EB4 happy without sources.
+#
+sources = [{
+#    'download_filename': 'v%(version)s.tar.gz',
+#    'source_urls':       ['https://github.com/CSCfi/hpc-container-wrapper/archive/refs/tags']
+    'filename':          '%(namelower)s-%(version)s.tar.gz',
+    'git_config': {
+        'url':       'https://github.com/CSCfi',
+        'repo_name': 'hpc-container-wrapper',
+        'tag':       'v0.4.2'
+    },
+    'extract_cmd': 'tar --strip-components=1 -xf %s'
+}]
+
+extract_sources = false
+
+local_testfile = """
+#!/usr/bin/bash
+echo "Dit is een test"
+"""
+
+install_cmds = [
+    'mkdir %(installdir)s/bin',
+    # The next line will not work as EasyBuild will add a space after EOF. 
+    # This causes a warning but no error, but the EOF is not seen as the symbol
+    # for the end of the HERE document.
+    f'cat >%(installdir)s/bin/testfile1.sh <<EOF {local_testfile}EOF',
+    'chmod a+rx %(installdir)s/bin/testfile1.sh',
+    # The solution is above: Add a newline.
+    f'cat >%(installdir)s/bin/testfile2.sh <<EOF {local_testfile}EOF\n',
+    'chmod a+rx %(installdir)s/bin/testfile2.sh',
+]
+
+postinstallcmds = [
+    # But in postinstallcmds, everything is OK.
+    f'cat >%(installdir)s/bin/testfile3.sh <<EOF {local_testfile}EOF',
+    'chmod a+rx %(installdir)s/bin/testfile3.sh',
+]
+
+sanity_check_paths = {
+    'files': ['bin/testfile1.sh'],
+    'dirs':  ['bin']
+}
+
+sanity_check_commands = [ 
+    'testfile2.sh',
+    'testfile3.sh',
+    'testfile1.sh',
+]
+
+moduleclass = "devel"
